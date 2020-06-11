@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+.a .mat-slider-thumb {
+  position: absolute;
+  // display: none !important;
+  right: -8px !important;
+  bottom: -5px !important;
+  box-sizing: border-box;
+  width: 10px !important;
+  height: 10px !important;
+  background: rgb(67, 18, 180) !important;
+
+}
+
+mat-slider:hover {
+  cursor: pointer;
+
+  .a .mat-slider-thumb {
+    position: absolute;
+    display: block !important;
+    right: -8px !important;
+    bottom: -5px !important;
+    box-sizing: border-box;
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+}
+
+.mat-slider-track-background {
+  background-color: rgb(247, 247, 247) !important;
+}
+
+.mat-accent .mat-slider-track-fill {
+  background: -webkit-gradient(linear, left top, right top, from(#00dbde), to(#fc00ff)) !important;
+}
+
+// volume popup width
+.mat-menu-panel.ng-trigger.ng-trigger-transformMenu.ng-tns-c5-0.mat-menu-after.ng-star-inserted.mat-elevation-z4.mat-menu-above {
+
+  min-width: 51px !important;
+  margin-left: -10px;
+  margin-bottom: 10px;
+  background: -moz-linear-gradient(top, #525355 0%, #000000 100%);
+  background: -webkit-linear-gradient(top, #525355 0%, #000000 100%);
+  background: linear-gradient(to bottom, #525355 0%, #000000 100%);
+}
+
+.c {
+  width: 30px !important;
+}
+
+.c .mat-slider-thumb {
+  width: 20px !important;
+  height: 20px !important;
+  right: -10px !important;
+  position: absolute !important;
+  background: rgb(67, 18, 180) !important;
+}
+
+.c .mat-slider-thumb:hover {
+  width: 20px !important;
+  height: 20px !important;
+  right: -10px !important;
+  position: absolute !important;
+  background: rgb(67, 18, 180) !important;
+}
+
+
+

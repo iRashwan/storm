@@ -1,0 +1,105 @@
+<!-- <mat-slider (input)="onInputChange($event)">asdasd</mat-slider> -->
+<div class="player">
+  <div class="container">
+    <div class="row">
+      <div class="" style="margin-left:15px">
+        <!-- Song Image -->
+        <img src="../../../assets/img/monkey.jpg"
+          style="width:4em;height: 4em; border-radius: 6px;border:1px solid white">
+      </div>
+      <!-- Song Name and Author -->
+      <div class="" style="color:white;margin-top:5px;margin-left:15px;padding-right: 15px;">
+        <h6>Dance Monkey</h6>
+        <h6>Lion Jack</h6>
+      </div>
+      <div style=" border-right: 1px solid white"></div>
+      <!-- Song Timers -->
+      <div class="" style="color:white;margin-top:7px;margin-left:15px;position: relative;">
+        <div style="position: absolute;bottom:10px;font-size: 10px;">{{currentT}}</div>
+        <div style="position: absolute;bottom:10px;font-size: 10px;right: -3px;">{{fullDuration}}</div>
+        <!-- Song Progress Bar -->
+        <mat-slider class="a" [tickInterval]=currentTime min=0 [max]=duration [(ngModel)]="currentTime"
+          (change)="updateSetting($event)"></mat-slider>
+      </div>
+      <!-- Controlers -->
+      <div class="" style="color:white; ">
+        <div class="controls ">
+          <div class="rew">
+            <i class="fas fa-step-backward"></i>
+          </div>
+          <div (click)="playAudio()" class="play" *ngIf="Play">
+            <i class="fas fa-play"></i>
+          </div>
+          <div (click)="stopAdio()" class="pause" *ngIf="Stop">
+            <i class="fas fa-pause"></i>
+          </div>
+          <div class="fwd">
+            <i class="fas fa-step-forward"></i>
+          </div>
+        </div>
+      </div>
+      <div style=" border-right: 1px solid white;margin-left:5px"></div>
+
+
+      <div class="allOptions row" style="margin-left: 70px;">
+        <!-- Repeat -->
+        <div class="" (click)="repeatSongs()" [ngStyle]="{'color': repeatSong === true ? 'rgb(197, 8, 8)' : 'white' }"
+          style="cursor: pointer;font-size: 15px; margin-left: 14px; margin-top: 21px;color: white" matTooltip="Repeat"
+          matTooltipPosition="above">
+          <i class="fas fa-redo"></i></div>
+
+        <div style=" border-right: 1px solid white;height: 35px;margin-left: 18px;height: 35px;margin-top: 14px;"></div>
+
+        <!-- volume -->
+        <div class="" style="margin-top:21px;margin-left:15px;font-size: 15px;cursor: pointer;">
+          <i *ngIf="VolumeVlaue !== 0" [matMenuTriggerFor]="volumeSlider" class="fas fa-volume-up hoverColor"
+            style="color:white" matTooltip="Volume" matTooltipPosition="above"></i>
+          <i *ngIf="VolumeVlaue === 0" [matMenuTriggerFor]="volumeSlider" class="fas fa-volume-mute hoverColor"
+            style="color:white" matTooltip="Volume" matTooltipPosition="above"></i>
+          <mat-menu id="vol" #volumeSlider="matMenu">
+            <mat-slider class="c" vertical="vertical" style="width:10px;height: 50px;" [(ngModel)]="VolumeVlaue" min=0
+              max=100 (change)="updateVolume($event)"></mat-slider>
+          </mat-menu>
+        </div>
+
+        <div style=" border-right: 1px solid white;height: 35px;margin-left: 18px;height: 35px;margin-top: 14px;"></div>
+
+        <!-- Like -->
+        <div style="margin-top:21px;margin-left:15px;font-size: 15px;cursor: pointer;">
+          <i *ngIf="Heart == false" class="far fa-heart" style="color:white" (click)="likeHeart()"
+            matTooltip="Like Song" matTooltipPosition="above"></i>
+          <i *ngIf="Heart == true" class="fas fa-heart" style="color:rgb(197, 8, 8)" (click)="likeHeart()"
+            matTooltip="Dislike Song" matTooltipPosition="above"></i>
+        </div>
+
+        <div style=" border-right: 1px solid white;height: 35px;margin-left: 18px;height: 35px;margin-top: 14px;"></div>
+
+        <!-- Download -->
+        <a class="hoverColor" href="songLink" download
+          style="font-size: 15px; margin-left: 14px; margin-top: 21px;color: white" matTooltip="Download"
+          matTooltipPosition="above">
+          <i class="fas fa-cloud-download-alt"></i>
+        </a>
+
+        <div style=" border-right: 1px solid white;height: 35px;margin-left: 18px;height: 35px;margin-top: 14px;"></div>
+
+        <!-- Shuffle -->
+        <div (click)="shuffleSong()" class="" [ngStyle]="{'color': shuffle === true ? 'rgb(197, 8, 8)' : 'white' }"
+          style="cursor: pointer;font-size: 15px; margin-left: 14px; margin-top: 21px;" matTooltip="Shuffle"
+          matTooltipPosition="above">
+          <i class="fas fa-random"></i>
+        </div>
+
+        <div style=" border-right: 1px solid white;height: 35px;margin-left: 18px;height: 35px;margin-top: 14px;"></div>
+
+        <!-- Share -->
+        <div class="hoverColor"
+          style="cursor: pointer;font-size: 15px; margin-left: 14px; margin-top: 21px;color: white" matTooltip="Share"
+          matTooltipPosition="above">
+          <i class="fas fa-share-alt"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <h1>Message from Service : {{messagess}}<h1></h1> -->
